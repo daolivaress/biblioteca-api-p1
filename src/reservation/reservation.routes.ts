@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { verifyToken } from "../auth/auth.jwt";
-import { GetBookReservationsController, GetUserReservationsController, PostReservationController } from "../controllers/reservation.controller";
+import { GetBookReservationsController, GetUserReservationsController, PostReservationController } from "../reservation/reservation.controller";
 
 const reservationRoutes = Router();
 

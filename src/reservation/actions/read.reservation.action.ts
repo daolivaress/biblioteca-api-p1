@@ -1,4 +1,4 @@
-import { reservationModel } from "../../models/reservation.model";
+import { reservationModel } from "../../reservation/reservation.model";
 import { Types } from "mongoose";
 
 export async function readReservationWithFilters(query: { bookId?: Types.ObjectId; userId?: Types.ObjectId }) {

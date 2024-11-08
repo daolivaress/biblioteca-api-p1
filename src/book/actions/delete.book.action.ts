@@ -1,4 +1,4 @@
-import { bookModel } from "../../models/book.model";
+import { bookModel } from "../../book/book.model";
 
 export async function deleteBookMongo(id:string) {
   return await bookModel.findByIdAndUpdate(

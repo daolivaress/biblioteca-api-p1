@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { getUserController, updateUserController, deleteUserController } from '../controllers/user.controller';
+import { getUserController, updateUserController, deleteUserController } from './user.controller';
 import { verifyToken } from '../auth/auth.jwt';
 import { permissions } from '../middlewares/permissions.middleware';
 

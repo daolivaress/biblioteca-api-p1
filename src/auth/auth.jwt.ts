@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from "express";
 import jwt, { JwtPayload } from "jsonwebtoken";
 import { SECRET } from "../config";
-import { userModel } from "../models/user.model";
+import { userModel } from "../user/user.model";
 
 interface CustomRequest extends Request {
   userId?: string;

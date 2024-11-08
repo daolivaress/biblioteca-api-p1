@@ -1,9 +1,9 @@
 import argon2 from 'argon2';
 import { Request, Response } from 'express';
-import { register } from './register.auth.action';
+import { register } from './actions/register.auth.action';
 import { login } from './login.auth.action';
-import { UserType } from '../models/user.model';
-import { userModel } from '../models/user.model';
+import { UserType } from '../user/user.model';
+import { userModel } from '../user/user.model';
 
 export async function registerUserController(req: Request, res: Response) {
   const { name, email, password } = req.body;

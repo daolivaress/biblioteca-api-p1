@@ -1,5 +1,5 @@
-import { UserType } from "../../models/user.model";
-import { userModel } from "../../models/user.model";
+import { UserType } from "../user.model";
+import { userModel } from "../user.model";
 
 export async function updateUserById(userId:string, data:Partial<UserType>){
   const user = await userModel.findById(userId);

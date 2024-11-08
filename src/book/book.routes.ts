@@ -4,7 +4,7 @@ import {
   createBookController,
   updateBookController,
   deleteBookController,
-} from "../controllers/book.controller";
+} from "./book.controller";
 import { verifyToken } from "../auth/auth.jwt";
 import { permissions } from "../middlewares/permissions.middleware";
 

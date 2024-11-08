@@ -1,12 +1,12 @@
-import { BookType, bookModel } from "../models/book.model";
-import { createBookMongo } from "../actions/book/create.book.action";
+import { BookType, bookModel } from "./book.model";
+import { createBookMongo } from "./actions/create.book.action";
 import {
   getBookMongo,
   findBookById,
-} from "../actions/book/read.book.action";
-import { updateBookById } from "../actions/book/update.book.action";
-import { deleteBookMongo } from "../actions/book/delete.book.action";
-import { createReservation } from "../actions/reservations/create.reservation.action";
+} from "./actions/read.book.action";
+import { updateBookById } from "./actions/update.book.action";
+import { deleteBookMongo } from "./actions/delete.book.action";
+import { createReservation } from "../reservation/actions/create.reservation.action";
 import { Request, Response } from "express";
 import mongoose from "mongoose";
 

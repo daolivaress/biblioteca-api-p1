@@ -1,4 +1,4 @@
-import { userModel as User } from "../models/user.model";
+import { userModel as User } from "../user/user.model";
 import { NextFunction, Request, Response } from "express";
 
 interface CustomRequest extends Request {

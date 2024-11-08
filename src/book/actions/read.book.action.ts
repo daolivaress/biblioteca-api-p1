@@ -1,4 +1,4 @@
-import { bookModel } from "../../models/book.model";
+import { bookModel } from "../../book/book.model";
 
 export async function getBookMongo(filtros: any) {
   const cantidadBooks = await bookModel.countDocuments(filtros);

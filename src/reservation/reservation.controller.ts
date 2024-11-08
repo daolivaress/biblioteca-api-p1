@@ -1,7 +1,6 @@
 import { Request, Response } from "express";
-import { readReservationWithFilters } from "../actions/reservations/read.reservation.action";
-import { createReservation } from "../actions/reservations/create.reservation.action";
-import { Types } from "mongoose";
+import { readReservationWithFilters } from "./actions/read.reservation.action";
+import { createReservation } from "./actions/create.reservation.action";
 
 interface CustomRequest extends Request {
   userId?: string;

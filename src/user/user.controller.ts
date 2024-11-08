@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
-import { findUserById } from "../actions/user/read.user.action";
-import { updateUserById } from "../actions/user/update.user.action";
-import { deleteUserById } from "../actions/user/delete.user.action";
+import { findUserById } from "./actions/read.user.action";
+import { updateUserById } from "./actions/update.user.action";
+import { deleteUserById } from "./actions/delete.user.action";
 import argon2 from "argon2";
 
 interface CustomRequest extends Request {
