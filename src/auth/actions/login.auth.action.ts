@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken';
-import { SECRET } from '../config';
-import { UserType } from '../user/user.model';
+import { SECRET } from '../../config';
+import { UserType } from '../../user/user.model';
 
 export async function login(user: UserType) {
   try {

@@ -1,7 +1,7 @@
 import argon2 from 'argon2';
 import { Request, Response } from 'express';
 import { register } from './actions/register.auth.action';
-import { login } from './login.auth.action';
+import { login } from './actions/login.auth.action';
 import { UserType } from '../user/user.model';
 import { userModel } from '../user/user.model';
 
