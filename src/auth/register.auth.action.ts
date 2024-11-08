@@ -4,7 +4,7 @@ export async function register(name: string, email: string, hashedPassword: stri
   const existingUser = await userModel.findOne({ email });
   if (existingUser) {
     return { error: 'El correo electrónico ya está registrado' };
-  }
+  };
 
   try {
     const newUser = new userModel({
@@ -17,5 +17,5 @@ export async function register(name: string, email: string, hashedPassword: stri
   } catch (error) {
     console.error(error);
     return { error: 'Error del servidor al registrar el usuario' };
-  }
-}
+  };
+};

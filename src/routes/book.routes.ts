@@ -28,8 +28,8 @@ async function GetBooks(req: Request, res: Response) {
         msg: "Error retrieving books",
         error: (e as Error).message,
       });
-  }
-}
+  };
+};
 
 async function PostBook(req: Request, res: Response) {
   try {
@@ -45,8 +45,8 @@ async function PostBook(req: Request, res: Response) {
         msg: "Error creating the book",
         error: (e as Error).message,
       });
-  }
-}
+  };
+};
 
 async function PatchBooks(req: Request, res: Response) {
   try {
@@ -59,8 +59,8 @@ async function PatchBooks(req: Request, res: Response) {
         msg: "Error updating the book",
         error: (e as Error).message,
       });
-  }
-}
+  };
+};
 
 async function DeleteBooks(req: Request, res: Response) {
   try {
@@ -74,11 +74,11 @@ async function DeleteBooks(req: Request, res: Response) {
         error: (e as Error).message,
       });
   }
-}
+};
 
 bookRoutes.get("/:bookId?", GetBooks);
 bookRoutes.post("/", verifyToken, permissions.canCreateBook, PostBook);
-bookRoutes.patch("/:bookId", verifyToken, permissions.canEditBook, PatchBooks);
+bookRoutes.patch("/:bookId?", verifyToken, permissions.canEditBook, PatchBooks);
 bookRoutes.delete("/:id", verifyToken, permissions.canDeleteBook, DeleteBooks);
 
 export default bookRoutes;

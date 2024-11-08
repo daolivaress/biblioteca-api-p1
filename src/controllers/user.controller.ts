@@ -21,8 +21,8 @@ export async function getUserController(req: CustomRequest, res: Response) {
       message: "Error retrieving user",
       error: (error as Error).message,
     });
-  }
-}
+  };
+};
 
 export async function updateUserController(req: CustomRequest, res: Response) {
   const { name, email, password } = req.body;

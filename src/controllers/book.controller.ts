@@ -12,7 +12,7 @@ import mongoose from "mongoose";
 
 interface CustomRequest extends Request {
   userId?: string;
-}
+};
 
 export async function readBookWithFilters(params: Partial<BookType>, query: Partial<BookType>) {
   const { bookId } = params;
@@ -34,7 +34,7 @@ export async function readBookWithFilters(params: Partial<BookType>, query: Part
     const book = await getBookMongo({ _id: bookId, enabled: enabledStatus });
 
     return book ? [book] : [];
-  }
+  };
 
   const queryMongo = {
     ...(title && { title: { $regex: title, $options: "i" } }),
@@ -52,12 +52,12 @@ export async function readBookWithFilters(params: Partial<BookType>, query: Part
 
   const resultBook = await getBookMongo(queryMongo);
   return resultBook;
-}
+};
 
 export async function createBookController(data: BookType) {
   const createdBook = await createBookMongo(data);
   return createdBook;
-}
+};
 
 export async function deleteBookController(req: CustomRequest, res: Response) {
   const { id } = req.params;
@@ -66,24 +66,24 @@ export async function deleteBookController(req: CustomRequest, res: Response) {
     const book = await bookModel.findById(id);
     if (!book) {
       return res.status(404).json({ message: "Book not found" });
-    }
+    };
     const softDeleteBook = await deleteBookMongo(id);
     if (softDeleteBook) {
       return res.status(200).json({ message: "Book successfully deleted" });
-    }
+    };
   } catch (error) {
     return res.status(500).json({
       message: "Error performing soft delete of the book",
       error: (error as Error).message,
     });
-  }
-}
+  };
+};
 
 export async function updateBookController(req:CustomRequest, res:Response) {
   const bookId = req.params.bookId;
   if (!mongoose.Types.ObjectId.isValid(bookId)) {
     return res.status(400).json({ message: "Invalid Book Id" });
-  }
+  };
 
   const userId = req.userId;
   const bookUpdates = req.body;
@@ -100,7 +100,7 @@ export async function updateBookController(req:CustomRequest, res:Response) {
 
     if (!book) {
       return res.status(404).json({ message: "Book not found" });
-    }
+    };
 
     if (bookUpdates.hasOwnProperty("reserved") &&
       bookUpdates.reserved === true &&
@@ -115,7 +115,7 @@ export async function updateBookController(req:CustomRequest, res:Response) {
         reservationDate: reservationDate,
         deliveryDate: deliveryDate,
       });
-    }
+    };
 
     const updatedBook = await updateBookById(bookObjectId as string, bookUpdates);
 
@@ -123,5 +123,5 @@ export async function updateBookController(req:CustomRequest, res:Response) {
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Server error", error: (error as Error).message });
-  }
-}
+  };
+};

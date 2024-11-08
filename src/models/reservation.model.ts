@@ -5,7 +5,7 @@ type ReservationType = {
   userId: Types.ObjectId;
   reservationDate: Date;
   deliveryDate: Date;
-}
+};
 
 const reservationSchema = new Schema<ReservationType>(
   {

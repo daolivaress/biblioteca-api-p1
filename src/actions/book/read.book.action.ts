@@ -7,11 +7,11 @@ export async function getBookMongo(filtros: any) {
     resultados: BooksFiltrados,
     cantidadBooks: cantidadBooks,
   };
-}
+};
 
 export async function findBookById(bookId: string) {
   return await bookModel.findById(bookId);
-}
+};
 
 export async function findAvailableBooksNotUploadedByUser(
   userId: string,
@@ -22,11 +22,11 @@ export async function findAvailableBooksNotUploadedByUser(
     status: "available",
     enabled: enabled,
   });
-}
+};
 
 export async function findBooksByUploader(userId: string, enabled = true) {
   return await bookModel.find({
     uploader: userId,
     enabled: enabled,
   });
-}
+};
