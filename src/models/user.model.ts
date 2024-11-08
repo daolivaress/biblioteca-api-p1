@@ -6,10 +6,11 @@ type UserType = {
   email: string;
   password: string;
   enable: boolean;
-  canCreate: boolean;
-  canRead: boolean;
-  canUpdate: boolean;
-  canDelete: boolean;
+  canCreateBook: boolean;
+  canEditBook: boolean;
+  canDeleteBook: boolean;
+  canEditUser: boolean;
+  canDeleteUser: boolean;
 };
 
 const userSchema = new Schema<UserType>({
@@ -17,10 +18,11 @@ const userSchema = new Schema<UserType>({
   email: {type: String, required: true, unique: true },
   password: {type: String, required: true},
   enable: {type: Boolean, default: true},
-  canCreate: {type: Boolean, default: false},
-  canRead: {type: Boolean, default: true},
-  canUpdate: {type: Boolean, default: false},
-  canDelete: {type: Boolean, default: false},
+  canCreateBook: { type: Boolean },
+  canEditBook: { type: Boolean },
+  canDeleteBook: { type: Boolean },
+  canEditUser: { type: Boolean },
+  canDeleteUser: { type: Boolean }
 });
 
 

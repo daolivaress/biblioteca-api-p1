@@ -1,6 +1,8 @@
 import cors from "cors";
-import authRoutes from "./middlewares/auth/auth.routes";
+import authRoutes from "./auth/auth.routes";
 import userRoutes from "./routes/user.routes";
+import bookRoutes from "./routes/book.routes";
+import reservationRoutes from "./routes/reservation.routes";
 import express, { Request, Response } from "express";
 
 //ROUTES
@@ -20,6 +22,8 @@ export const createApp = () => {
   //ROUTES
   app.use(`${SERVER_VERSION}/auth`, authRoutes);
   app.use(`${SERVER_VERSION}/users`, userRoutes);
+  app.use(`${SERVER_VERSION}/books`, bookRoutes);
+  app.use(`${SERVER_VERSION}/reservations`, reservationRoutes);
   app.use(routeNotFound);
   
   return app;

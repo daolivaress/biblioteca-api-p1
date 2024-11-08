@@ -1,12 +1,13 @@
 import { Router } from 'express';
 import { getUserController, updateUserController, deleteUserController } from '../controllers/user.controller';
-import { verifyToken } from '../middlewares/auth/auth.jwt';
+import { verifyToken } from '../auth/auth.jwt';
+import { permissions } from '../middlewares/permissions.middleware';
 
 const userRoutes = Router();
 
 userRoutes.get('/:id?', verifyToken, getUserController);
-userRoutes.put('/edit/:id?', verifyToken, updateUserController);
-userRoutes.delete('/delete/:id', verifyToken, deleteUserController);
+userRoutes.put('/edit/:id?', verifyToken, permissions.canEditUser, updateUserController);
+userRoutes.delete('/delete/:id', verifyToken, permissions.canDeleteUser, deleteUserController);
 
 
 export default userRoutes;
