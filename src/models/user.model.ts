@@ -1,6 +1,7 @@
 import { Schema, model } from 'mongoose';
 
 type UserType = {
+  _id?: string;
   name: string;
   email: string;
   password: string;
@@ -15,7 +16,7 @@ const userSchema = new Schema<UserType>({
   name: {type: String, required: true},
   email: {type: String, required: true, unique: true },
   password: {type: String, required: true},
-  enable: {type: Boolean, required: true, default: true},
+  enable: {type: Boolean, default: true},
   canCreate: {type: Boolean, default: false},
   canRead: {type: Boolean, default: true},
   canUpdate: {type: Boolean, default: false},
