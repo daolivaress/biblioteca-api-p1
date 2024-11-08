@@ -10,11 +10,11 @@ export const permissions = {
     req: CustomRequest,
     res: Response,
     next: NextFunction
-  ) => {
+  ): Promise<void> => {
     const user = await User.findById(req.userId);
-
     if (user && user.canCreateBook) {
       next();
+      return;
     }
     res
       .status(403)
@@ -25,10 +25,11 @@ export const permissions = {
     req: CustomRequest,
     res: Response,
     next: NextFunction
-  ) => {
+  ): Promise<void> => {
     const user = await User.findById(req.userId);
     if (user && user.canEditBook) {
       next();
+      return;
     }
     res
       .status(403)
@@ -39,10 +40,11 @@ export const permissions = {
     req: CustomRequest,
     res: Response,
     next: NextFunction
-  ) => {
+  ): Promise<void> => {
     const user = await User.findById(req.userId);
     if (user && user.canDeleteBook) {
       next();
+      return;
     }
     res
       .status(403)
@@ -53,14 +55,13 @@ export const permissions = {
     req: CustomRequest,
     res: Response,
     next: NextFunction
-  ) => {
+  ): Promise<void> => {
     try {
       const user = await User.findById(req.userId);
-
       if (user && (user.canEditUser || user._id.toString() === req.params.id)) {
         next();
+        return;
       }
-
       res
         .status(403)
         .json({ message: "You do not have permission to edit users" });
@@ -73,17 +74,16 @@ export const permissions = {
     req: CustomRequest,
     res: Response,
     next: NextFunction
-  ) => {
+  ): Promise<void> => {
     try {
       const user = await User.findById(req.userId);
-
       if (
         user &&
         (user.canDeleteUser || user._id.toString() === req.params.id)
       ) {
         next();
+        return;
       }
-
       res
         .status(403)
         .json({ message: "You do not have permission to disable users" });

@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { findUserById } from "../utils/functions";
+import { findUserById } from "../actions/user/read.user.action";
 import { updateUserById } from "../actions/user/update.user.action";
 import { deleteUserById } from "../actions/user/delete.user.action";
 import argon2 from "argon2";
